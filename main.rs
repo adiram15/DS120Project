@@ -18,6 +18,8 @@ struct Cli {
     //Path to airquality csv file
     file: String, 
 }
+// parses CLI args, reads csv entries, computes stats based on the spcified period given by input. 
+//applies soothing window if requested 
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
    let cli = Cli::parse();
