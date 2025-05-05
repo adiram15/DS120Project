@@ -26,7 +26,8 @@ pub struct AirQualityEntry {
     pub no2: Option<f32>,
     pub o3: Option<f32>,
 }
-
+//Parses csv file at given path into a vector of AirQualityEntry
+//returns a vector after successfuly parsing all valid records
 pub fn parse_csv(path: &str) -> Result<Vec<AirQualityEntry>, Box<dyn std::error::Error>> {
     let mut rdr = csv::ReaderBuilder::new()
         .delimiter(b';')
