@@ -19,7 +19,8 @@ pub fn filter_outliers(entries: &[crate::parser::AirQualityEntry]) -> Vec<crate:
         .cloned()
         .collect()
 }
-
+//purpose:providing utility functions for time series -> soothing
+//applies a moving window average smoothing toa sequence of time keyed stats
 pub fn smooth_stats(stats: &[(String, MonthlyStats)], window: usize) -> Vec<(String, MonthlyStats)> {
     if window <= 1 { return stats.to_vec(); }
     let mut out = Vec::new();
